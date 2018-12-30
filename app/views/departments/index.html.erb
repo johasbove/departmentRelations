@@ -1,23 +1,37 @@
-<div class="container">
+<div class="container margin-top">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info", role: "alert" %>
+  <% end %>
+
   <div class="row">
-    <h2>
-      Cargar jerarquia
-      <small>
-        <%= form_tag upload_departments_path, multipart: true do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Guardar" %>
-        <% end %>
-      </small>
-    </h2>
-  </div>
-  <div class="row">
-    <h2>
-      Imprimir jerarquia
-      <small>
-        <%= link_to(print_departments_path(format: :xlsx)) do %>
-          Descargar
-        <% end %>
-      </small>
-    </h2>
+    <div class="col-sm">
+      <div class="row">
+        <h2>
+          Cargar jerarquia
+        </h2>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <%= form_tag upload_departments_path, multipart: true do %>
+            <%= file_field_tag :file, class: "form-control" %>
+            <%= submit_tag "Guardar", class: "btn btn-primary", type: "submit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="row">
+        <h2>
+          Imprimir jerarquia
+        </h2>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <%= link_to print_departments_path(format: :xlsx), class: "btn btn-primary", role: "button" do %>
+            Descargar
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

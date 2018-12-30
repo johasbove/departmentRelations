@@ -7,7 +7,6 @@ class Department < ApplicationRecord
   scope :main, -> { where(father_id: nil) }
 
   def self.assign_hierarchy_by_file(file)
-    byebug
     xlsx = Roo::Spreadsheet.open(file.path)
     column_number = xlsx.sheet(0).last_column - 1
     xlsx.each_with_index do |row, index|
