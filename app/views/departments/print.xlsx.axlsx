@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Areas") do |sheet|
+  sheet.add_row ['area padre', 'area hija']
+  @departments.each do |department|
+    if department.father
+      sheet.add_row [department.father.name, department.name]
+    end
+  end
+end
