@@ -5,9 +5,10 @@ página root se puede cargar un archivo Excel de relaciones de jerarquía
 inter-departamentales y descargar a su vez un archivo Excel con los pares
 ordenados de la jerarquías guardadas.
 
-## Versión de Ruby 2.5.0
+## Versión de Ruby
+2.5.0
 
-##Comandos a seguir:
+## Comandos a seguir:
 
 * bundle install
 * rails db:create
