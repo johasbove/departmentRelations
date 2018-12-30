@@ -10,7 +10,9 @@ ordenados de la jerarquías guardadas.
 
 ## Comandos a seguir:
 
-* bundle install
-* rails db:create
-* rails db:migrate
-* rails s
+```bash
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails s
+```
