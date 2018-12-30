@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2018_12_29_201352) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
-    t.bigint "father_id"
+    t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["father_id"], name: "index_departments_on_father_id"
-    t.index ["name", "father_id"], name: "index_departments_on_name_and_father_id", unique: true
+    t.index ["name", "parent_id"], name: "index_departments_on_name_and_parent_id", unique: true
+    t.index ["parent_id"], name: "index_departments_on_parent_id"
   end
 
 end

@@ -1,10 +1,10 @@
 class Department < ApplicationRecord
   require 'roo'
 
-  has_many :children, class_name: 'Department', foreign_key: 'father_id'
-  belongs_to :father, class_name: 'Department', optional: true
+  has_many :children, class_name: 'Department', foreign_key: 'parent_id'
+  belongs_to :parent, class_name: 'Department', optional: true
 
-  scope :main, -> { where(father_id: nil) }
+  scope :main, -> { where(parent_id: nil) }
 
   def self.assign_hierarchy_by_file(file)
     xlsx = Roo::Spreadsheet.open(file.path)
@@ -16,14 +16,14 @@ class Department < ApplicationRecord
   end
 
   def self.find_or_create_hierarchy_branch hierarchy_branch
-    father = nil
+    parent = nil
     hierarchy_branch.map do |department_name|
-      next if (!father.nil? && department_name == father.name)
+      next if (!parent.nil? && department_name == parent.name)
       department = Department.find_or_create_by({
         name: department_name,
-        father_id: father && father.id
+        parent_id: parent && parent.id
       })
-      father = department
+      parent = department
     end
   end
 end
