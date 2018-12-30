@@ -1,24 +1,15 @@
-# README
+# Department Relations App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Luego de correr las migraciones se podrá levantar el servidor local, en cuya
+página root se puede cargar un archivo Excel de relaciones de jerarquía
+inter-departamentales y descargar a su vez un archivo Excel con los pares
+ordenados de la jerarquías guardadas.
 
-Things you may want to cover:
+## Versión de Ruby 2.5.0
 
-* Ruby version
+##Comandos a seguir:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* bundle install
+* rails db:create
+* rails db:migrate
+* rails s
